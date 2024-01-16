@@ -47,7 +47,7 @@ const RecipientInput: React.FC = () => {
   };
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Backspace" && inputValue.length < 1) {
+    if (e.key === "Backspace" && inputValue.length < 1 && selectedRecipients.length >=1) {
       if(isDeletionActivitated){
         handleChipDelete(selectedRecipients[selectedRecipients.length-1].email)
       }else{

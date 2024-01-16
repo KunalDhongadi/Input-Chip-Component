@@ -76,12 +76,14 @@ export const Popup: React.FC<PopupProps> = ({
   const handleSelection = (selectedRecipient: Recipient) => {
     onClose();
     setSelected(0);
-    setSelectedRecipients([...selectedRecipients, selectedRecipient]);
-    setFilteredRecipients((prevFilteredRecipients) =>
-      prevFilteredRecipients.filter(
-        (recipient) => recipient.email !== selectedRecipient.email
-      )
-    );
+    if(selectedRecipient){
+      setSelectedRecipients([...selectedRecipients, selectedRecipient]);
+      setFilteredRecipients((prevFilteredRecipients) =>
+        prevFilteredRecipients.filter(
+          (recipient) => recipient.email !== selectedRecipient.email
+        )
+      );
+    }
   };
 
   return (
